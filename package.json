@@ -1,0 +1,26 @@
+{
+  "name": "mimi-parser",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "forever --minUptime 2000 --spinSleepTime 5000 --watch --watchDirectory data src/index.js",
+    "test": "jest"
+  },
+  "standard": {},
+  "dependencies": {
+    "axios": "0.18.0",
+    "dotenv": "8.0.0",
+    "esprima": "4.0.1",
+    "forever": "1.0.0",
+    "jsdom": "15.0.0",
+    "log4js": "4.1.1",
+    "mongoose": "5.5.6"
+  },
+  "devDependencies": {
+    "husky": "2.2.0",
+    "jest": "24.8.0",
+    "lint-staged": "8.1.6",
+    "standard": "12.0.1"
+  }
+}

@@ -1,0 +1,41 @@
+version: '3'
+services:
+  # mimi-parser:
+  #   image: mimi-parser
+  #   restart: always
+  #   build:
+  #     dockerfile: ./mimi-paparser.dockerfile
+  #     context: ./
+  #   volumes:
+  #     - ./data:/mimi-parser/data
+  #     - ./logs:/mimi-parser/logs
+  #   environment:
+  #     - dbHost=mongo
+  #     - dbName=mimi-parser
+  #     - dbUser=mimi
+  #     - dbPassword=bX;UyyL)C4riq9RpfxmdAsEE
+  #     - defaultInterval=300000
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./db:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mimi
+      - MONGO_INITDB_ROOT_PASSWORD=bX;UyyL)C4riq9RpfxmdAsEE
+  mongo-express:
+    image: mongo-express
+    restart: always
+    volumes:
+      - ./certs:/certs
+    ports:
+      - 8081:8081
+    environment:
+      - ME_CONFIG_BASICAUTH_USERNAME=mimi
+      - ME_CONFIG_BASICAUTH_PASSWORD=YRfDFTFPNhh7XV{7gpvru#eu
+      - ME_CONFIG_SITE_SSL_ENABLED=true
+      - ME_CONFIG_SITE_SSL_CRT_PATH=/certs/mongo-express.cert
+      - ME_CONFIG_SITE_SSL_KEY_PATH=/certs/mongo-express.key
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=mimi
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=bX;UyyL)C4riq9RpfxmdAsEE
