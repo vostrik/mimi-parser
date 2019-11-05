@@ -15,7 +15,7 @@
     "forever": "1.0.0",
     "jsdom": "15.0.0",
     "log4js": "4.1.1",
-    "mongoose": "5.5.6"
+    "mongoose": "5.7.5"
   },
   "devDependencies": {
     "husky": "2.2.0",
